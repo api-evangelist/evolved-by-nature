@@ -1,23 +1,144 @@
 aid: evolved-by-nature
 name: Evolved By Nature
-description: 'Evolved By Nature is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Evolved By Nature is a Needham, Massachusetts biotechnology company — formerly Silk Therapeutics —
+  that develops Activated Silk, a platform of liquid silk-derived molecules used as renewable
+  bioactive ingredients and performance chemistries across personal care, skincare, leather
+  finishing and textiles. The company sells physical product rather than software: there is no
+  developer program, no OpenAPI and no API key issuance. Its only live machine-readable API surface
+  is the agentic-commerce layer on its two Shopify storefronts, where UCP (Universal Commerce
+  Protocol) and Shopify storefront MCP endpoints, a storefront GraphQL API, llms.txt and agents.md
+  are served anonymously from evolvedbynature.com hosts.
+image: https://biotech.evolvedbynature.com/wp-content/themes/ebn/assets/images/cropped-favicon-192x192.png
 url: https://raw.githubusercontent.com/api-evangelist/evolved-by-nature/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-enrichment:
+  date: '2026-08-12'
+  status: enriched
+  artifacts_added: 33
+  pass: local-v1
 specificationVersion: '0.20'
 created: '2026-08-12'
 modified: '2026-08-12'
 tags:
 - Company
-apis: []
+- Biotechnology
+- Materials Science
+- Sustainability
+- Personal Care
+- Cosmetics
+- Specialty Chemicals
+- Textiles
+- eCommerce
+- Agentic Commerce
+- Model Context Protocol
+- Universal Commerce Protocol
+apis:
+- aid: evolved-by-nature-skincare-commerce
+  name: Evolved By Nature Skincare Store — Agentic Commerce API
+  description: >-
+    The agent-callable commerce surface of the Evolved By Nature direct-to-consumer skincare store.
+    A UCP 2026-04-08 MCP endpoint exposes 13 catalog, cart, checkout and order tools; a second
+    Shopify storefront MCP endpoint exposes 5 shopping tools; a Shopify Storefront GraphQL API
+    (2025-07) answers unauthenticated introspection. Discovery requires no credentials; completing a
+    checkout requires explicit buyer approval.
+  humanURL: https://skincare.evolvedbynature.com
+  baseURL: https://skincare.evolvedbynature.com
+  tags:
+  - Agentic Commerce
+  - Model Context Protocol
+  - Universal Commerce Protocol
+  - GraphQL
+  - eCommerce
+  properties:
+  - type: MCPServer
+    url: mcp/evolved-by-nature-mcp.yml
+  - type: GraphQL
+    url: graphql/evolved-by-nature-graphql.yml
+  - type: LLMsTxt
+    url: llms/evolved-by-nature-skincare-llms.txt
+  - type: AgentSkill
+    url: skills/evolved-by-nature-skincare-agents.md
+  - type: WellKnown
+    url: well-known/evolved-by-nature-well-known.yml
+  - type: Documentation
+    url: https://skincare.evolvedbynature.com/agents.md
+- aid: evolved-by-nature-bioactives-commerce
+  name: Evolved By Nature Bioactives Store — Agentic Commerce API
+  description: >-
+    The agent-callable commerce surface of the Evolved By Nature bioactives store, which sells
+    Activated Silk ingredient grades to formulators. Same deployment as the skincare storefront — a
+    UCP 2026-04-08 MCP endpoint with 13 tools, a Shopify storefront MCP endpoint with 5 tools, and an
+    introspectable Shopify Storefront GraphQL API — backed by a separate shop and OAuth issuer.
+  humanURL: https://bioactives.evolvedbynature.com
+  baseURL: https://bioactives.evolvedbynature.com
+  tags:
+  - Agentic Commerce
+  - Model Context Protocol
+  - Universal Commerce Protocol
+  - GraphQL
+  - Specialty Chemicals
+  properties:
+  - type: MCPServer
+    url: mcp/evolved-by-nature-mcp.yml
+  - type: GraphQL
+    url: graphql/evolved-by-nature-graphql.yml
+  - type: LLMsTxt
+    url: llms/evolved-by-nature-bioactives-llms.txt
+  - type: AgentSkill
+    url: skills/evolved-by-nature-bioactives-agents.md
+  - type: WellKnown
+    url: well-known/evolved-by-nature-well-known.yml
+  - type: Documentation
+    url: https://bioactives.evolvedbynature.com/agents.md
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/evolved-by-nature-domain-security.yml
 - type: Website
+  url: https://biotech.evolvedbynature.com
+- type: Blog
+  url: https://biotech.evolvedbynature.com/news-media
+- type: Support
+  url: https://biotech.evolvedbynature.com/contact
+- type: TermsOfService
+  url: https://biotech.evolvedbynature.com/terms
+- type: PrivacyPolicy
+  url: https://biotech.evolvedbynature.com/privacy
+- type: GitHubOrganization
+  url: https://github.com/Evolved-By-Nature
+- type: SecondaryMarket
   url: https://forgeglobal.com/evolved-by-nature_stock/
+- type: WellKnown
+  url: well-known/evolved-by-nature-well-known.yml
+- type: MCPServer
+  url: mcp/evolved-by-nature-mcp.yml
+- type: GraphQL
+  url: graphql/evolved-by-nature-graphql.yml
+- type: LLMsTxt
+  url: llms/evolved-by-nature-skincare-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/evolved-by-nature-authentication.yml
+- type: OAuthScopes
+  url: scopes/evolved-by-nature-scopes.yml
+- type: Conformance
+  url: conformance/evolved-by-nature-conformance.yml
+- type: Conventions
+  url: conventions/evolved-by-nature-conventions.yml
+- type: ErrorCatalog
+  url: errors/evolved-by-nature-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/evolved-by-nature-lifecycle.yml
+- type: DataModel
+  url: data-model/evolved-by-nature-data-model.yml
+- type: Plans
+  url: plans/evolved-by-nature-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/evolved-by-nature-rate-limits.yml

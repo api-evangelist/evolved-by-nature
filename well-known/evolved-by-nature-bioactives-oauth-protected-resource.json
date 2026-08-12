@@ -1,0 +1,9 @@
+{
+  "resource": "https://bioactives.evolvedbynature.com",
+  "authorization_servers": [
+    "https://shopify.com/authentication/65777369280"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}

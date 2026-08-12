@@ -1,0 +1,76 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  Derived from the 13 UCP tool inputSchemas in
+  mcp/evolved-by-nature-skincare-ucp-tools.json and the capability set in
+  well-known/evolved-by-nature-skincare-ucp.json (captured 2026-08-12).
+name: Evolved By Nature — commerce data model
+description: >-
+  Entity graph of the storefront commerce surface, read off the live MCP tool schemas. Entities are
+  UCP/Shopify commerce objects as deployed by Evolved By Nature; there is no provider-authored object
+  reference.
+identifier_format: 'gid://shopify/<Type>/<id>'
+entities:
+- name: Catalog
+  ucp_capability: dev.ucp.shopping.catalog.search, dev.ucp.shopping.catalog.lookup
+  operations: [search_catalog, lookup_catalog, get_product]
+  note: 7 products live on each storefront as of 2026-08-12.
+- name: Product
+  operations: [get_product, get_product_details, lookup_catalog]
+  id_example: 'gid://shopify/Product/...'
+- name: Cart
+  ucp_capability: dev.ucp.shopping.cart
+  operations: [create_cart, get_cart, update_cart, cancel_cart]
+  id_example: 'gid://shopify/Cart/...'
+- name: Checkout
+  ucp_capability: dev.ucp.shopping.checkout
+  operations: [create_checkout, get_checkout, update_checkout, complete_checkout, cancel_checkout]
+  id_example: 'gid://shopify/Checkout/abc123'
+- name: Order
+  ucp_capability: dev.ucp.shopping.order
+  operations: [get_order]
+- name: PaymentInstrument
+  note: Nested in checkout.payment.instruments[]; each carries id, handler_id and type.
+- name: Fulfillment
+  ucp_capability: dev.ucp.shopping.fulfillment
+  config:
+    allows_multi_destination_shipping: false
+    allows_method_combinations: [[shipping]]
+- name: Discount
+  ucp_capability: dev.ucp.shopping.discount
+- name: AgentProfile
+  note: meta.ucp-agent.profile — a URI identifying the calling agent, required on every UCP tool.
+relationships:
+- from: Cart
+  to: Product
+  type: has_many
+  via: line items
+- from: Checkout
+  to: Cart
+  type: belongs_to
+  via: cart id
+- from: Checkout
+  to: PaymentInstrument
+  type: has_many
+  via: checkout.payment.instruments
+- from: Checkout
+  to: Fulfillment
+  type: has_one
+  via: fulfillment capability (extends checkout, cart)
+- from: Checkout
+  to: Discount
+  type: has_many
+  via: discount capability (extends checkout, cart)
+- from: Order
+  to: Checkout
+  type: belongs_to
+  via: completed checkout
+- from: Product
+  to: Catalog
+  type: belongs_to
+  via: catalog search/lookup
+money:
+  representation: integer minor units + ISO 4217 currency code
+notes:
+- Derived only from schemas actually returned by tools/list; no entity is inferred from Shopify
+  platform documentation.

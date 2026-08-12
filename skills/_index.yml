@@ -1,0 +1,37 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  https://skincare.evolvedbynature.com/agents.md and
+  https://bioactives.evolvedbynature.com/agents.md (HTTP 200, 2026-08-12)
+name: Evolved By Nature — agent skills
+description: >-
+  Evolved By Nature serves provider-authored agent instructions at /agents.md on both of its Shopify
+  storefronts, and the storefront robots.txt names that document as the canonical agent-facing
+  description of the store. Both files are saved verbatim. One additional skill is packaged from the
+  live UCP tool names returned by tools/list.
+skills:
+- id: skincare-agents-md
+  name: Evolved By Nature Skincare — agent instructions
+  file: skills/evolved-by-nature-skincare-agents.md
+  method: searched
+  source: https://skincare.evolvedbynature.com/agents.md
+  verbatim: true
+  api: evolved-by-nature-skincare-commerce
+- id: bioactives-agents-md
+  name: Evolved By Nature Bioactives — agent instructions
+  file: skills/evolved-by-nature-bioactives-agents.md
+  method: searched
+  source: https://bioactives.evolvedbynature.com/agents.md
+  verbatim: true
+  api: evolved-by-nature-bioactives-commerce
+- id: buy-activated-silk
+  name: Buy Activated Silk product through the UCP commerce API
+  file: skills/evolved-by-nature-buy-activated-silk.md
+  method: generated
+  source: >-
+    mcp/evolved-by-nature-skincare-ucp-tools.json (live tools/list, 2026-08-12) +
+    skills/evolved-by-nature-skincare-agents.md
+  api: evolved-by-nature-skincare-commerce
+notes:
+- The Shopify shopping skill at https://shop.app/SKILL.md is referenced from agents.md but is
+  Shopify's, not Evolved By Nature's, and is not saved here.

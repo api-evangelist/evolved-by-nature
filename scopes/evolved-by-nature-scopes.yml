@@ -1,0 +1,33 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  https://skincare.evolvedbynature.com/.well-known/oauth-authorization-server and
+  https://bioactives.evolvedbynature.com/.well-known/oauth-authorization-server (HTTP 200, 2026-08-12)
+name: Evolved By Nature — OAuth scopes
+description: >-
+  Scopes advertised by the Shopify Customer Accounts authorization servers named from Evolved By
+  Nature's two storefront hosts. Identical on both storefronts. Evolved By Nature publishes no scope
+  reference of its own.
+issuers:
+- https://shopify.com/authentication/62086119623
+- https://shopify.com/authentication/65777369280
+scopes:
+- name: openid
+  description: OpenID Connect authentication; issues an ID token identifying the buyer.
+  standard: true
+- name: email
+  description: Access to the buyer's email address claim.
+  standard: true
+- name: customer-account-api:full
+  description: Full access to the Shopify Customer Account API for the signed-in buyer.
+  standard: false
+- name: customer-account-mcp-api:full
+  description: >-
+    Full access to the Customer Account MCP API — the authenticated agent surface for a signed-in
+    buyer's account (orders, addresses, payment methods).
+  standard: false
+scope_count: 4
+notes:
+- Scope names are Shopify-defined; the shop-scoped issuers are Evolved By Nature's.
+- The anonymous UCP/MCP commerce endpoints require no scope for discovery, catalog search or cart
+  creation. Checkout completion requires buyer approval.

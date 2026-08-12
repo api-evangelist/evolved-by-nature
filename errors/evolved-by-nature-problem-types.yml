@@ -1,0 +1,36 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  Live probes of https://skincare.evolvedbynature.com/api/ucp/mcp, 2026-08-12. No provider error
+  reference is published.
+name: Evolved By Nature — error catalog
+description: >-
+  Error shapes observed on the live UCP/MCP endpoint. Errors are JSON-RPC 2.0 error objects, not
+  RFC 9457 problem+json. Only errors actually reproduced anonymously are listed; the authenticated
+  and transactional error space could not be reached without buyer credentials.
+format: jsonrpc-2.0-error
+media_type: application/json
+problem_types:
+- code: -32001
+  data_code: invalid_profile_url
+  http_status: 422
+  title: UCP discovery failed
+  message: 'Unable to fetch agent profile: Missing profile uri'
+  remediation: >-
+    Supply meta.ucp-agent.profile as a resolvable URI on every UCP tool call. The server resolves the
+    agent profile before validating tool arguments, so this masks argument errors.
+  observed_on:
+  - method: tools/call
+    tool: get_checkout
+  - method: nope/nope
+  extra_fields:
+  - continue_url
+  evidence: 'POST /api/ucp/mcp 2026-08-12 -> HTTP 422, body captured in this entry.'
+not_observed:
+  note: >-
+    Argument-validation, out-of-stock, payment-declined and rate-limit (429) errors are referenced by
+    agents.md or implied by the schemas but could not be triggered anonymously without transacting.
+    They are deliberately NOT catalogued here rather than guessed.
+gaps:
+- No published error reference, error-code table, or status-code contract.
+- Not RFC 9457; no application/problem+json anywhere on the surface.

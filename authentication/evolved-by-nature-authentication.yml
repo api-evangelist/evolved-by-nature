@@ -1,0 +1,55 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  https://skincare.evolvedbynature.com/.well-known/oauth-authorization-server and
+  /.well-known/oauth-protected-resource (HTTP 200, unauthenticated, 2026-08-12)
+name: Evolved By Nature — authentication profile
+description: >-
+  There is no Evolved By Nature developer program, API key issuance, or auth documentation. The only
+  authentication surface is the Shopify Customer Accounts OAuth 2.0 / OpenID Connect provider behind
+  the two storefronts, advertised from each storefront host via RFC 8414 authorization-server
+  metadata and RFC 9728 protected-resource metadata.
+ownership_note: >-
+  Authorization servers are hosted by Shopify (shopify.com/authentication/<shop-id>) and are named by
+  metadata documents served from Evolved By Nature's own hosts. The shop ids are Evolved By Nature's.
+schemes:
+- id: shopify-customer-accounts-oauth2
+  type: oauth2
+  standard: OAuth 2.0 + OpenID Connect
+  flows:
+    authorizationCode:
+      pkce: required
+      code_challenge_methods: [S256]
+      grant_types: [authorization_code, refresh_token, 'urn:ietf:params:oauth:grant-type:jwt-bearer']
+      token_endpoint_auth_methods: [client_secret_basic]
+      id_token_signing_alg: [RS256]
+  applies_to:
+  - resource: https://skincare.evolvedbynature.com
+    issuer: https://shopify.com/authentication/62086119623
+    authorization_endpoint: https://shopify.com/authentication/62086119623/oauth/authorize
+    token_endpoint: https://shopify.com/authentication/62086119623/oauth/token
+    jwks_uri: https://shopify.com/authentication/62086119623/.well-known/jwks.json
+    end_session_endpoint: https://shopify.com/authentication/62086119623/logout
+  - resource: https://bioactives.evolvedbynature.com
+    issuer: https://shopify.com/authentication/65777369280
+    authorization_endpoint: https://shopify.com/authentication/65777369280/oauth/authorize
+    token_endpoint: https://shopify.com/authentication/65777369280/oauth/token
+    jwks_uri: https://shopify.com/authentication/65777369280/.well-known/jwks.json
+    end_session_endpoint: https://shopify.com/authentication/65777369280/logout
+  bearer_methods_supported: [header]
+- id: anonymous-discovery
+  type: none
+  note: >-
+    MCP `tools/list` and `initialize`, GraphQL introspection, /.well-known/*, /llms.txt, /agents.md
+    and /products.json all answer with no credentials. Discovery is open; transacting on a buyer's
+    behalf is not.
+unauthenticated_surfaces:
+- https://skincare.evolvedbynature.com/api/ucp/mcp
+- https://skincare.evolvedbynature.com/api/mcp
+- https://bioactives.evolvedbynature.com/api/ucp/mcp
+- https://bioactives.evolvedbynature.com/api/mcp
+- https://skincare.evolvedbynature.com/api/2025-07/graphql.json
+- https://bioactives.evolvedbynature.com/api/2025-07/graphql.json
+gaps:
+- No provider-published authentication documentation of any kind.
+- No API key programme, no partner credentials, no developer portal.

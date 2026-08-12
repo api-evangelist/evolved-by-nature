@@ -1,0 +1,94 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  Derived from mcp/evolved-by-nature-*-tools.json, well-known/evolved-by-nature-*-ucp.json,
+  skills/evolved-by-nature-*-agents.md and the storefront robots.txt (all captured 2026-08-12).
+name: Evolved By Nature — cross-cutting API conventions
+description: >-
+  Runtime semantics an agent needs to call the Evolved By Nature storefront commerce surface. All
+  rules below are read off the live tool schemas and the provider-served agents.md / robots.txt; the
+  company publishes no separate developer documentation.
+transport:
+  protocol: JSON-RPC 2.0 over HTTP POST (MCP streamable-http)
+  accept_header_required: 'application/json, text/event-stream'
+  mcp_protocol_version: '2025-06-18'
+authentication:
+  discovery: none
+  transaction: >-
+    Buyer approval required at payment; Shopify Customer Accounts OAuth 2.0 for account-scoped
+    surfaces. See authentication/evolved-by-nature-authentication.yml.
+agent_identity:
+  required: true
+  parameter: meta.ucp-agent.profile
+  type: URI
+  note: >-
+    Every UCP tool declares `meta` as a REQUIRED input carrying `ucp-agent.profile`, a URI naming the
+    calling agent's profile. Omitting it fails the call before argument validation — observed
+    JSON-RPC -32001 invalid_profile_url with HTTP 422 on 2026-08-12.
+money:
+  representation: integer minor units + ISO 4217 currency code
+  example: '{"amount": 2500, "currency": "USD"} is $25.00'
+  note: >-
+    Zero-decimal currencies (JPY) are already whole units. Stated verbatim in every UCP tool
+    description; convert before quoting a price to a buyer.
+identifiers:
+  style: Shopify global ids (GID)
+  format: 'gid://shopify/<Type>/<id>'
+  example: 'gid://shopify/Checkout/abc123'
+pagination:
+  style: opaque cursor
+  request_field: catalog.pagination.cursor
+  response_field: pagination.cursor
+  note: >-
+    search_catalog returns a limited first page; pass the returned cursor to fetch further pages.
+    Documented in the tool description, not in any provider doc.
+localization:
+  buyer_context_fields:
+  - context.address_country
+  - context.address_region
+  - context.postal_code
+  - context.language
+  - context.currency
+  - context.intent
+  note: agents.md instructs agents to pass address_country and currency for accurate pricing.
+environment_signals:
+  fields:
+  - dev.ucp.buyer_ip
+  - dev.ucp.user_agent
+  purpose: authorization and abuse prevention
+idempotency:
+  supported: false
+  note: >-
+    No idempotency key, header, or retry-safety contract is exposed on any tool schema or in
+    agents.md. Cart and checkout mutations are not idempotent by any published mechanism.
+versioning:
+  ucp: date-based ('2026-04-08' current, '2026-01-23' still served)
+  graphql: date-based Shopify Storefront API version ('2025-07' probed)
+  mcp: date-based protocol version negotiated at initialize
+  deprecation_policy: none published
+error_envelope:
+  shape: JSON-RPC 2.0 error object
+  http_status_on_error: 422 (observed)
+  see: errors/evolved-by-nature-problem-types.yml
+rate_limiting:
+  documented_numbers: false
+  signal: 429 with back-off expected
+  see: rate-limits/evolved-by-nature-rate-limits.yml
+human_in_the_loop:
+  rule: >-
+    Checkout, payment and order placement MUST NOT be completed autonomously. robots.txt and
+    agents.md both state agents need an explicit, contemporaneous human approval step and must route
+    through the UCP/MCP endpoints or the Shopify shopping skill.
+  enforcement: policy (stated), not technically enforced at tools/list
+read_only_rest:
+  note: Documented in agents.md as the no-auth browsing path, alongside the MCP surface.
+  endpoints:
+  - GET /products.json
+  - GET /products/{handle}.json
+  - GET /collections/{handle}/products.json
+  - GET /collections/all
+  - GET /search?q={query}&type=product
+  - GET /sitemap.xml
+  disallowed_by_robots:
+  - /cart.js
+  - /recommendations/products

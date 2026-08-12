@@ -1,0 +1,135 @@
+generated: '2026-08-12'
+method: probed
+source: direct HTTPS probes of every Evolved By Nature host, 2026-08-12
+description: >-
+  /.well-known probe across all four Evolved By Nature hosts. The two Shopify storefronts serve real
+  documents at /.well-known/ucp, /.well-known/oauth-authorization-server,
+  /.well-known/oauth-protected-resource and /.well-known/openid-configuration. The corporate
+  WordPress site serves nothing.
+hosts:
+- host: https://skincare.evolvedbynature.com
+  platform: Shopify
+  paths:
+  - path: /.well-known/ucp
+    status: 200
+    content_type: application/json
+    document: true
+    file: well-known/evolved-by-nature-skincare-ucp.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    document: true
+    file: well-known/evolved-by-nature-skincare-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    document: true
+    file: well-known/evolved-by-nature-skincare-oauth-protected-resource.json
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    document: true
+    file: well-known/evolved-by-nature-skincare-openid-configuration.json
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: https://bioactives.evolvedbynature.com
+  platform: Shopify
+  paths:
+  - path: /.well-known/ucp
+    status: 200
+    content_type: application/json
+    document: true
+    file: well-known/evolved-by-nature-bioactives-ucp.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    document: true
+    file: well-known/evolved-by-nature-bioactives-oauth-authorization-server.json
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    document: true
+    file: well-known/evolved-by-nature-bioactives-oauth-protected-resource.json
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    document: true
+    file: well-known/evolved-by-nature-bioactives-openid-configuration.json
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: https://biotech.evolvedbynature.com
+  platform: WordPress
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+- host: https://www.evolvedbynature.com
+  platform: redirect
+  note: >-
+    www 301s to https://biotech.evolvedbynature.com/ ROOT, discarding the path, so every
+    /.well-known/* and /openapi.json probe against www returns HTTP 200 carrying the corporate
+    homepage HTML. This is a soft-200, NOT a served document. Recorded here so a later run does not
+    mistake it for a hit.
+  paths:
+  - path: /openapi.json
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/agent-card.json
+    status: 200
+    document: false
+    soft_200: true
+  - path: /.well-known/security.txt
+    status: 200
+    document: false
+    soft_200: true
+summary:
+  hosts_probed: 4
+  real_documents: 8
+  security_txt: false
+  agent_card: false
+  api_catalog: false

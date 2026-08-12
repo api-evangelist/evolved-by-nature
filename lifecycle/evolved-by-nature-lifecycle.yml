@@ -1,0 +1,47 @@
+generated: '2026-08-12'
+method: derived
+source: >-
+  Derived from well-known/evolved-by-nature-*-ucp.json and MCP initialize responses probed
+  2026-08-12; corporate site https://biotech.evolvedbynature.com searched for policy pages.
+name: Evolved By Nature — API lifecycle
+description: >-
+  Evolved By Nature publishes no versioning policy, no deprecation policy, no SLA, no status page and
+  no changelog. What versioning exists is inherited from the protocols it deploys, all of which are
+  date-versioned.
+versioning:
+  scheme: date-based (inherited from UCP, MCP and the Shopify Storefront API)
+  surfaces:
+  - surface: UCP
+    current: '2026-04-08'
+    also_served: ['2026-01-23']
+    discovery: /.well-known/ucp supported_versions
+  - surface: MCP
+    negotiated: '2025-06-18'
+    discovery: initialize
+  - surface: Shopify Storefront GraphQL
+    probed: '2025-07'
+    discovery: URL path segment
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  note: >-
+    UCP 2026-01-23 remains served alongside 2026-04-08, which is an overlap in practice but not a
+    published policy. No RFC 8594 signaling observed.
+status_page:
+  published: false
+  note: >-
+    No first-party status page. Storefront availability is Shopify's
+    (status.shopify.com), which Evolved By Nature does not reference from any of its own properties.
+sla:
+  published: false
+changelog:
+  published: false
+support:
+  channel: general company contact only
+  url: https://biotech.evolvedbynature.com/contact
+  developer_support: false
+deprecated_operations: []
+notes:
+- Nothing in this file is a provider-authored lifecycle commitment; it is a record of the absence of
+  one, plus the version markers the deployed protocols expose.

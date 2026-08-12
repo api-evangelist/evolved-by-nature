@@ -1,0 +1,24 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  https://biotech.evolvedbynature.com/ and https://biotech.evolvedbynature.com/partner-with-us
+  (HTTP 200, 2026-08-12); storefront product catalogs at
+  https://skincare.evolvedbynature.com/products.json and
+  https://bioactives.evolvedbynature.com/products.json (HTTP 200)
+name: Evolved By Nature — API plans and pricing
+description: >-
+  Evolved By Nature sells physical goods — Activated Silk bioactive ingredients and finished
+  skincare — not API access. There is no API pricing page, no developer tier, no metered plan and no
+  key issuance. The commerce MCP surface is free to call because it exists to sell product.
+plan_count: 0
+plans: []
+access_model: >-
+  Ingredient and biofinishing supply is a business-development motion ("Partner with us" contact
+  form). Consumer and B2B product is sold direct through two Shopify storefronts. Neither is an API
+  product.
+product_pricing_note: >-
+  Product-level pricing IS machine-readable via /products.json and the UCP catalog tools on both
+  storefronts (7 products each, priced in ISO 4217 minor units). That is merchandise pricing, not
+  API plan pricing, and is deliberately not recorded here as a plan.
+notes:
+- An honest zero. Recording plan_count 0 rather than omitting the file, per pipeline rule 23.

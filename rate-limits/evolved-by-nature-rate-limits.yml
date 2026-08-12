@@ -1,0 +1,28 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  https://skincare.evolvedbynature.com/agents.md and
+  https://bioactives.evolvedbynature.com/agents.md (HTTP 200, 2026-08-12)
+name: Evolved By Nature — rate limits
+description: >-
+  Rate limiting is acknowledged but never quantified. agents.md states only "The MCP endpoint is
+  rate-limited per IP. Back off on 429 responses." No numbers, no windows, no burst, and no
+  RateLimit-* response headers were observed on unauthenticated calls.
+limit_count: 0
+limits: []
+signaling:
+  status_code_on_exhaustion: 429
+  response_headers_observed: []
+  retry_after_observed: false
+  documented_headers: []
+scope: per-IP (stated, unquantified)
+graphql_cost:
+  note: >-
+    Storefront GraphQL responses carry an extensions.cost object
+    (requestedQueryCost observed = 1), which is Shopify's calculated-cost throttling signal. No
+    throttleStatus was returned on the anonymous introspection query.
+notes:
+- Evolved By Nature publishes no rate-limit documentation of its own; the only statement is the
+  Shopify-templated sentence in agents.md.
+- An integrator cannot size a workload from what is published — the number is absent, only the
+  failure mode is named.

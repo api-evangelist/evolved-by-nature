@@ -1,0 +1,107 @@
+generated: '2026-08-12'
+method: probed
+source: >-
+  Direct probes of Evolved By Nature hosts 2026-08-12; derived from the captured /.well-known
+  documents and MCP tools/list responses in this repo.
+name: Evolved By Nature — standards conformance
+description: >-
+  Cross-cutting standards Evolved By Nature's live surface actually implements. Every conforms:true
+  row is backed by a document or response captured in this repo. No compliance or certification
+  claims are published by the company.
+standards:
+- id: mcp
+  name: Model Context Protocol
+  conforms: true
+  version: '2025-06-18'
+  evidence: >-
+    initialize negotiated protocolVersion 2025-06-18 and returned serverInfo
+    {name: universal-commerce, version: 0.1.0} at
+    https://skincare.evolvedbynature.com/api/ucp/mcp (HTTP 200, 2026-08-12).
+- id: ucp
+  name: Universal Commerce Protocol (ucp.dev)
+  conforms: true
+  version: '2026-04-08'
+  also_supported: ['2026-01-23']
+  evidence: >-
+    /.well-known/ucp on both storefronts advertises service dev.ucp.shopping over MCP plus
+    capabilities checkout, fulfillment, discount, cart, order, catalog.search, catalog.lookup and
+    dev.shopify.catalog. Captured at well-known/evolved-by-nature-*-ucp.json.
+- id: jsonrpc2
+  name: JSON-RPC 2.0
+  conforms: true
+  evidence: All MCP requests and responses carry jsonrpc "2.0"; errors use the JSON-RPC error object.
+- id: json-schema-2020-12
+  name: JSON Schema 2020-12
+  conforms: true
+  evidence: >-
+    Every MCP tool inputSchema declares
+    $schema https://json-schema.org/draft/2020-12/schema (26 tool schemas captured).
+- id: oauth2
+  name: OAuth 2.0
+  conforms: true
+  evidence: Authorization code + PKCE (S256) advertised by both shop-scoped issuers.
+- id: oidc
+  name: OpenID Connect
+  conforms: true
+  evidence: /.well-known/openid-configuration served on both storefront hosts; RS256 id tokens.
+- id: rfc8414
+  name: 'RFC 8414: OAuth 2.0 Authorization Server Metadata'
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with a valid metadata document.
+- id: rfc9728
+  name: 'RFC 9728: OAuth 2.0 Protected Resource Metadata'
+  conforms: true
+  evidence: >-
+    /.well-known/oauth-protected-resource returns 200 naming resource and authorization_servers on
+    both storefronts.
+- id: graphql
+  name: GraphQL
+  conforms: true
+  evidence: >-
+    Shopify Storefront API 2025-07 answers unauthenticated introspection (422 types, 31 root
+    queries, 41 root mutations) on both storefront hosts.
+- id: llmstxt
+  name: llms.txt
+  conforms: true
+  evidence: /llms.txt served on both storefront hosts (200, text/plain), captured verbatim in llms/.
+- id: agents-md
+  name: AGENTS.md / agents.md agent instructions
+  conforms: true
+  evidence: /agents.md served on both storefront hosts, captured verbatim in skills/.
+- id: iso4217
+  name: 'ISO 4217 minor-unit money representation'
+  conforms: true
+  evidence: >-
+    Tool descriptions state prices are integers in ISO 4217 minor units paired with a currency code.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    No OpenAPI on any host. /openapi.json, /swagger.json, /api-docs, /v1/openapi.json all 404 on
+    biotech and both storefronts; www 200s only because it redirects to the corporate homepage root.
+- id: asyncapi
+  name: AsyncAPI
+  conforms: false
+  evidence: No event or webhook surface is published by Evolved By Nature.
+- id: rfc9457
+  name: 'RFC 9457: Problem Details for HTTP APIs'
+  conforms: false
+  evidence: Errors are JSON-RPC error objects, not application/problem+json.
+- id: rfc8594
+  name: 'RFC 8594: Sunset header / deprecation signaling'
+  conforms: false
+  evidence: No Sunset or Deprecation headers observed; no deprecation policy published.
+- id: securitytxt
+  name: 'RFC 9116: security.txt'
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on every Evolved By Nature host.
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json return 404 on biotech and both
+    storefronts. www returns 200 only as a redirect-to-root soft-200, not a document.
+compliance_certifications: []
+notes:
+- Evolved By Nature publishes no SOC 2, ISO 27001, PCI, HIPAA or FedRAMP claim and operates no trust
+  center. Payment handling is Shopify's, under Shopify's compliance posture, not the company's.

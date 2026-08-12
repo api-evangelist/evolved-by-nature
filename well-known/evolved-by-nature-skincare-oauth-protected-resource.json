@@ -1,0 +1,9 @@
+{
+  "resource": "https://skincare.evolvedbynature.com",
+  "authorization_servers": [
+    "https://shopify.com/authentication/62086119623"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ]
+}

@@ -1,0 +1,30 @@
+generated: '2026-08-12'
+method: searched
+source: >-
+  registry.npmjs.org (name + text search), pypi.org, api.github.com/orgs, and the corporate site
+  https://biotech.evolvedbynature.com — all queried 2026-08-12.
+name: Evolved By Nature — client packages
+description: >-
+  No first-party SDK, client library, or CLI exists in any public registry. Recorded as a checked
+  absence, not an omission. This file intentionally carries NO Packages/SDKs pointer in apis.yml.
+package_count: 0
+packages: []
+registries_checked:
+- registry: npm
+  query: 'name "evolvedbynature" (404) and text search "evolvedbynature" (0 results)'
+  result: none
+- registry: PyPI
+  query: 'pypi.org/pypi/evolvedbynature/json'
+  result: none (404)
+- registry: GitHub
+  query: 'api.github.com/orgs/evolved-by-nature'
+  result: >-
+    Org "Evolved-By-Nature" exists (created 2022-07-19) with public_repos 0 — no published code, no
+    packages, no specs.
+- registry: cdn
+  result: >-
+    No first-party JS loader or embeddable component. Storefront theme assets are Shopify CDN and
+    are not a distributed client library.
+notes:
+- The Shopify shopping skill referenced from agents.md (https://shop.app/SKILL.md) is Shopify's, not
+  Evolved By Nature's, and is not recorded as a first-party package.

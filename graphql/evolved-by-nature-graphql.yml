@@ -1,0 +1,32 @@
+generated: '2026-08-12'
+method: probed
+source: https://skincare.evolvedbynature.com/api/2025-07/graphql.json (POST introspection, HTTP 200, unauthenticated)
+name: Evolved By Nature — Shopify Storefront GraphQL
+description: >-
+  Both Evolved By Nature storefronts answer unauthenticated Shopify Storefront API GraphQL
+  introspection at /api/2025-07/graphql.json. `{ shop { name } }` returns "Evolved By Nature".
+ownership_note: >-
+  Shopify-platform-provided surface served first-party from Evolved By Nature's own hosts (skincare.evolvedbynature.com / bioactives.evolvedbynature.com). The documents self-identify as "Evolved By Nature's online store" and the storefront GraphQL reports shop.name "Evolved By Nature"; the UCP discovery document names the backing shops ebn-skincare.myshopify.com and ebn-bioactives.myshopify.com. The tool surface is templated by Shopify and is identical across Shopify stores — it is Evolved By Nature's deployment of it, not a contract Evolved By Nature authored.
+  The GraphQL schema itself is the Shopify Storefront API schema, identical across every Shopify
+  store; the SDL is therefore NOT saved into this repo as an Evolved By Nature contract. Only the
+  endpoint, version and measured shape are recorded here.
+endpoints:
+- url: https://skincare.evolvedbynature.com/api/2025-07/graphql.json
+  http_status: 200
+  introspection: open
+  shop_name: Evolved By Nature
+- url: https://bioactives.evolvedbynature.com/api/2025-07/graphql.json
+  http_status: 200
+  introspection: open
+  shop_name: Evolved By Nature
+schema_shape:
+  api_version: '2025-07'
+  query_root: QueryRoot
+  types: 422
+  root_queries: 31
+  root_mutations: 41
+  identical_across_storefronts: true
+notes:
+- Introspection is open and requires no Storefront access token for the schema itself.
+- Schema is platform-authored (Shopify), not provider-authored. Not wired as an Evolved By Nature
+  contract pointer for that reason.

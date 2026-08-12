@@ -1,0 +1,180 @@
+generated: '2026-08-12'
+method: probed
+source: https://skincare.evolvedbynature.com/api/ucp/mcp (POST tools/list, HTTP 200, unauthenticated)
+name: Evolved By Nature — MCP servers
+description: >-
+  Evolved By Nature operates no developer program and publishes no OpenAPI. Its only live,
+  machine-readable, callable API surface is the agentic-commerce layer on its two Shopify
+  storefronts: a UCP (Universal Commerce Protocol) MCP endpoint and a Shopify storefront MCP
+  endpoint, both answering `tools/list` anonymously over JSON-RPC 2.0.
+ownership_note: >-
+  Shopify-platform-provided surface served first-party from Evolved By Nature's own hosts (skincare.evolvedbynature.com / bioactives.evolvedbynature.com). The documents self-identify as "Evolved By Nature's online store" and the storefront GraphQL reports shop.name "Evolved By Nature"; the UCP discovery document names the backing shops ebn-skincare.myshopify.com and ebn-bioactives.myshopify.com. The tool surface is templated by Shopify and is identical across Shopify stores — it is Evolved By Nature's deployment of it, not a contract Evolved By Nature authored.
+x-evidence:
+  fetched: '2026-08-12'
+  transport: streamable-http-jsonrpc
+  protocol_version_negotiated: '2025-06-18'
+  server_info:
+    name: universal-commerce
+    version: 0.1.0
+  server_capabilities: [tools, prompts, resources, logging]
+servers:
+- id: skincare-ucp-mcp
+  name: Evolved By Nature Skincare — UCP Commerce MCP
+  url: https://skincare.evolvedbynature.com/api/ucp/mcp
+  canonical_endpoint: https://ebn-skincare.myshopify.com/api/ucp/mcp
+  transport: streamable-http
+  status: live
+  authentication: none-for-discovery
+  http_status: 200
+  ucp_version: '2026-04-08'
+  tool_count: 13
+  tools:
+  - name: get_checkout
+    description: "Returns details about the checkout, including line items, totals, and any applicable discounts or taxes."
+    required: [meta, id]
+  - name: create_checkout
+    description: "Creates a checkout. Returns checkout details, including line items, totals, and any applicable discounts or taxes."
+    required: [meta, checkout]
+  - name: update_checkout
+    description: "Updates a checkout. Returns checkout details, including line items, totals, and any applicable discounts or taxes."
+    required: [meta, checkout, id]
+  - name: complete_checkout
+    description: "Completes a checkout and returns the checkout result. Returns details about the completed checkout, including order ID, Thank You Page URL, or any errors encountered."
+    required: [meta, id, checkout]
+  - name: cancel_checkout
+    description: "Cancels a checkout."
+    required: [meta, id]
+  - name: get_cart
+    description: "Get the cart contents"
+    required: [meta, id]
+  - name: create_cart
+    description: "Creates a new cart"
+    required: [meta, cart]
+  - name: update_cart
+    description: "Perform updates to a cart."
+    required: [meta, cart, id]
+  - name: cancel_cart
+    description: "Cancels a cart."
+    required: [meta, id]
+  - name: get_order
+    description: "Get the details of an order"
+    required: [meta, id]
+  - name: search_catalog
+    description: "Search for products from the online store, hosted on Shopify."
+    required: [meta, catalog]
+  - name: lookup_catalog
+    description: "Look up multiple products or variants by identifier."
+    required: [meta, catalog]
+  - name: get_product
+    description: "Retrieve complete product detail by identifier. Returns a singular product"
+    required: [meta, catalog]
+- id: skincare-storefront-mcp
+  name: Evolved By Nature Skincare — Shopify Storefront MCP
+  url: https://skincare.evolvedbynature.com/api/mcp
+  transport: streamable-http
+  status: live
+  authentication: none-for-discovery
+  http_status: 200
+  tool_count: 5
+  tools:
+  - name: search_catalog
+    description: "Search for products from the online store, hosted on Shopify."
+    required: []
+  - name: get_cart
+    description: "Get the cart including items, shipping options, discount info, and checkout url for a given cart id"
+    required: [cart_id]
+  - name: update_cart
+    description: "Perform updates to a cart, including adding/removing/updating line items, buyer information, shipping details, discount codes, gift cards and notes in one consolidated call. Shipping options become available after adding items and delivery address. When creating a new cart, only addItems is required."
+    required: []
+  - name: search_shop_policies_and_faqs
+    description: "Used to get facts about the stores policies, products, or services."
+    required: [query]
+  - name: get_product_details
+    description: "Look up a product by ID. Pass the 'options' parameter to select a specific variant for the product card. Without options, the first available variant is returned."
+    required: [product_id]
+- id: bioactives-ucp-mcp
+  name: Evolved By Nature Bioactives — UCP Commerce MCP
+  url: https://bioactives.evolvedbynature.com/api/ucp/mcp
+  canonical_endpoint: https://ebn-bioactives.myshopify.com/api/ucp/mcp
+  transport: streamable-http
+  status: live
+  authentication: none-for-discovery
+  http_status: 200
+  ucp_version: '2026-04-08'
+  tool_count: 13
+  tools:
+  - name: get_checkout
+    description: "Returns details about the checkout, including line items, totals, and any applicable discounts or taxes."
+    required: [meta, id]
+  - name: create_checkout
+    description: "Creates a checkout. Returns checkout details, including line items, totals, and any applicable discounts or taxes."
+    required: [meta, checkout]
+  - name: update_checkout
+    description: "Updates a checkout. Returns checkout details, including line items, totals, and any applicable discounts or taxes."
+    required: [meta, checkout, id]
+  - name: complete_checkout
+    description: "Completes a checkout and returns the checkout result. Returns details about the completed checkout, including order ID, Thank You Page URL, or any errors encountered."
+    required: [meta, id, checkout]
+  - name: cancel_checkout
+    description: "Cancels a checkout."
+    required: [meta, id]
+  - name: get_cart
+    description: "Get the cart contents"
+    required: [meta, id]
+  - name: create_cart
+    description: "Creates a new cart"
+    required: [meta, cart]
+  - name: update_cart
+    description: "Perform updates to a cart."
+    required: [meta, cart, id]
+  - name: cancel_cart
+    description: "Cancels a cart."
+    required: [meta, id]
+  - name: get_order
+    description: "Get the details of an order"
+    required: [meta, id]
+  - name: search_catalog
+    description: "Search for products from the online store, hosted on Shopify."
+    required: [meta, catalog]
+  - name: lookup_catalog
+    description: "Look up multiple products or variants by identifier."
+    required: [meta, catalog]
+  - name: get_product
+    description: "Retrieve complete product detail by identifier. Returns a singular product"
+    required: [meta, catalog]
+- id: bioactives-storefront-mcp
+  name: Evolved By Nature Bioactives — Shopify Storefront MCP
+  url: https://bioactives.evolvedbynature.com/api/mcp
+  transport: streamable-http
+  status: live
+  authentication: none-for-discovery
+  http_status: 200
+  tool_count: 5
+  tools:
+  - name: search_catalog
+    description: "Search for products from the online store, hosted on Shopify."
+    required: []
+  - name: get_cart
+    description: "Get the cart including items, shipping options, discount info, and checkout url for a given cart id"
+    required: [cart_id]
+  - name: update_cart
+    description: "Perform updates to a cart, including adding/removing/updating line items, buyer information, shipping details, discount codes, gift cards and notes in one consolidated call. Shipping options become available after adding items and delivery address. When creating a new cart, only addItems is required."
+    required: []
+  - name: search_shop_policies_and_faqs
+    description: "Used to get facts about the stores policies, products, or services."
+    required: [query]
+  - name: get_product_details
+    description: "Look up a product by ID. Pass the 'options' parameter to select a specific variant for the product card. Without options, the first available variant is returned."
+    required: [product_id]
+raw_captures:
+- mcp/evolved-by-nature-skincare-ucp-tools.json
+- mcp/evolved-by-nature-skincare-storefront-tools.json
+- mcp/evolved-by-nature-bioactives-ucp-tools.json
+- mcp/evolved-by-nature-bioactives-storefront-tools.json
+notes:
+- The two storefronts expose byte-identical tool sets; only the backing shop and OAuth issuer differ.
+- Tool inputSchemas are JSON Schema 2020-12 and are captured verbatim in the raw_captures files.
+- Every UCP tool requires a `meta.ucp-agent.profile` URI; calls without it return JSON-RPC error
+  -32001 `invalid_profile_url` with HTTP 422 (observed 2026-08-12).
+- Checkout completion requires contemporaneous human approval per the provider-served agents.md
+  and robots.txt; agents must not finalize payment autonomously.

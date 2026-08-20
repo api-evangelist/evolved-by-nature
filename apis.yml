@@ -30,6 +30,19 @@ tags:
 - Cosmetics
 - Specialty Chemicals
 - Textiles
+- E-Commerce
+- Agentic Commerce
+- MCP
+- Universal Commerce Protocol
+tags_raw:
+- Company
+- Biotechnology
+- Materials Science
+- Sustainability
+- Personal Care
+- Cosmetics
+- Specialty Chemicals
+- Textiles
 - eCommerce
 - Agentic Commerce
 - Model Context Protocol
@@ -46,6 +59,12 @@ apis:
   humanURL: https://skincare.evolvedbynature.com
   baseURL: https://skincare.evolvedbynature.com
   tags:
+  - Agentic Commerce
+  - MCP
+  - Universal Commerce Protocol
+  - GraphQL
+  - E-Commerce
+  tags_raw:
   - Agentic Commerce
   - Model Context Protocol
   - Universal Commerce Protocol
@@ -74,6 +93,12 @@ apis:
   humanURL: https://bioactives.evolvedbynature.com
   baseURL: https://bioactives.evolvedbynature.com
   tags:
+  - Agentic Commerce
+  - MCP
+  - Universal Commerce Protocol
+  - GraphQL
+  - Specialty Chemicals
+  tags_raw:
   - Agentic Commerce
   - Model Context Protocol
   - Universal Commerce Protocol

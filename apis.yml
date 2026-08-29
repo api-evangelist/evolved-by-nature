@@ -9,6 +9,17 @@ description: >-
   is the agentic-commerce layer on its two Shopify storefronts, where UCP (Universal Commerce
   Protocol) and Shopify storefront MCP endpoints, a storefront GraphQL API, llms.txt and agents.md
   are served anonymously from evolvedbynature.com hosts.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://biotech.evolvedbynature.com/wp-content/themes/ebn/assets/images/cropped-favicon-192x192.png
 url: https://raw.githubusercontent.com/api-evangelist/evolved-by-nature/refs/heads/main/apis.yml
 x-type: company

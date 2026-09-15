@@ -1,14 +1,12 @@
 aid: evolved-by-nature
 name: Evolved By Nature
-description: >-
-  Evolved By Nature is a Needham, Massachusetts biotechnology company — formerly Silk Therapeutics —
-  that develops Activated Silk, a platform of liquid silk-derived molecules used as renewable
-  bioactive ingredients and performance chemistries across personal care, skincare, leather
-  finishing and textiles. The company sells physical product rather than software: there is no
-  developer program, no OpenAPI and no API key issuance. Its only live machine-readable API surface
-  is the agentic-commerce layer on its two Shopify storefronts, where UCP (Universal Commerce
-  Protocol) and Shopify storefront MCP endpoints, a storefront GraphQL API, llms.txt and agents.md
-  are served anonymously from evolvedbynature.com hosts.
+description: 'Evolved By Nature is a Needham, Massachusetts biotechnology company — formerly Silk Therapeutics
+  — that develops Activated Silk, a platform of liquid silk-derived molecules used as renewable bioactive
+  ingredients and performance chemistries across personal care, skincare, leather finishing and textiles.
+  The company sells physical product rather than software: there is no developer program, no OpenAPI and
+  no API key issuance. Its only live machine-readable API surface is the agentic-commerce layer on its
+  two Shopify storefronts, where UCP (Universal Commerce Protocol) and Shopify storefront MCP endpoints,
+  a storefront GraphQL API, llms.txt and agents.md are served anonymously from evolvedbynature.com hosts.'
 deliveryModel:
   model: saas
   open_source: false
@@ -74,14 +72,13 @@ tags_raw:
 - Model Context Protocol
 - Universal Commerce Protocol
 apis:
-- aid: evolved-by-nature-skincare-commerce
+- aid: evolved-by-nature:evolved-by-nature-skincare-commerce
   name: Evolved By Nature Skincare Store — Agentic Commerce API
-  description: >-
-    The agent-callable commerce surface of the Evolved By Nature direct-to-consumer skincare store.
-    A UCP 2026-04-08 MCP endpoint exposes 13 catalog, cart, checkout and order tools; a second
-    Shopify storefront MCP endpoint exposes 5 shopping tools; a Shopify Storefront GraphQL API
-    (2025-07) answers unauthenticated introspection. Discovery requires no credentials; completing a
-    checkout requires explicit buyer approval.
+  description: The agent-callable commerce surface of the Evolved By Nature direct-to-consumer skincare
+    store. A UCP 2026-04-08 MCP endpoint exposes 13 catalog, cart, checkout and order tools; a second
+    Shopify storefront MCP endpoint exposes 5 shopping tools; a Shopify Storefront GraphQL API (2025-07)
+    answers unauthenticated introspection. Discovery requires no credentials; completing a checkout requires
+    explicit buyer approval.
   humanURL: https://skincare.evolvedbynature.com
   baseURL: https://skincare.evolvedbynature.com
   tags:
@@ -109,13 +106,12 @@ apis:
     url: well-known/evolved-by-nature-well-known.yml
   - type: Documentation
     url: https://skincare.evolvedbynature.com/agents.md
-- aid: evolved-by-nature-bioactives-commerce
+- aid: evolved-by-nature:evolved-by-nature-bioactives-commerce
   name: Evolved By Nature Bioactives Store — Agentic Commerce API
-  description: >-
-    The agent-callable commerce surface of the Evolved By Nature bioactives store, which sells
-    Activated Silk ingredient grades to formulators. Same deployment as the skincare storefront — a
-    UCP 2026-04-08 MCP endpoint with 13 tools, a Shopify storefront MCP endpoint with 5 tools, and an
-    introspectable Shopify Storefront GraphQL API — backed by a separate shop and OAuth issuer.
+  description: The agent-callable commerce surface of the Evolved By Nature bioactives store, which sells
+    Activated Silk ingredient grades to formulators. Same deployment as the skincare storefront — a UCP
+    2026-04-08 MCP endpoint with 13 tools, a Shopify storefront MCP endpoint with 5 tools, and an introspectable
+    Shopify Storefront GraphQL API — backed by a separate shop and OAuth issuer.
   humanURL: https://bioactives.evolvedbynature.com
   baseURL: https://bioactives.evolvedbynature.com
   tags:

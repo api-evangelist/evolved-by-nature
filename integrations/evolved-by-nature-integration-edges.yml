@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/evolved-by-nature/integrations
 - https://n8n.io/integrations/evolved-by-nature/
@@ -10,7 +10,42 @@ checked:
 - https://monid.ai/tools/evolved-by-nature
 - https://n8n.io/integrations/evolved-by-nature/
 - https://zapier.com/apps/evolved-by-nature/integrations
+- https://cascale.org/our-members/
+- https://services.oeko-tex.com/buying-guide/
+- https://www.centricsoftware.com/partners/
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: OEKO-TEX (textile certification)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://services.oeko-tex.com/buying-guide/
+  category: OEKO-TEX certified textile / leather products
+  contract_reference:
+    register: OEKO-TEX Buying Guide (services.oeko-tex.com/buying-guide/, public lookup)
+    standard: OEKO-TEX (STANDARD 100 / LEATHER STANDARD / STeP / ECO PASSPORT / MADE IN GREEN / ...)
+    spec_file: null
+    role: oeko-tex-certified
+    registered_name: Evolved By Nature, Inc.
+    register_country: United States
+    matched_domain: evolvedbynature.com
+    matched_by: domain
+    certified_products:
+    - product: OEKO-TEX ECO PASSPORT
+      standard_code: ecopass
+      certified_entities:
+      - Evolved By Nature, Inc.
+      lapsed: false
+    signal_note: certified_products = one entry per OEKO-TEX standard held, never per certificate or site; the Buying
+      Guide lists only currently valid certificates, so lapse is not observable (lapsed False = listed on the read
+      date). Looked up by the provider's catalog name; the certified company linked by its profile website (domain
+      + name check)
+    detected_by: sweep-fashion-apparel.py
+    detected: '2026-10-20'
+  detected_by: sweep-fashion-apparel.py
+  first_seen: '2026-10-20'
 templates: []

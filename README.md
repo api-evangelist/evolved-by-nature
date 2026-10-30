@@ -64,5 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Evolved By Nature is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/evolved-by-nature_stock/
+Evolved By Nature is a Needham, Massachusetts biotechnology company — formerly Silk Therapeutics — that develops Activated Silk, a platform of liquid silk-derived molecules used as renewable bioactive ingredients and performance chemistries across personal care, skincare, leather finishing and textiles. The company sells physical product rather than software: there is no developer program, no OpenAPI and no API key issuance. Its only live machine-readable API surface is the agentic-commerce layer on its two Shopify storefronts, where UCP (Universal Commerce Protocol) and Shopify storefront MCP endpoints, a storefront GraphQL API, llms.txt and agents.md are served anonymously from evolvedbynature.com hosts.
+
+**Areas:** Company · Biotechnology · Materials Science · Sustainability · Personal Care · Cosmetics · Specialty Chemicals · Textiles · E-Commerce · Agentic Commerce · MCP · Universal Commerce Protocol
+
+## Evolved By Nature on APIs.io
+
+Everything profiled for Evolved By Nature is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/evolved-by-nature/](https://apis.io/providers/evolved-by-nature/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Evolved By Nature Skincare Store — Agentic Commerce API](https://apis.io/apis/evolved-by-nature/evolved-by-nature-skincare-commerce/) — The agent-callable commerce surface of the Evolved By Nature direct-to-consumer skincare store. A UCP 2026-04-08 MCP endpoint exposes 13 catalog, cart,…
+- [Evolved By Nature Bioactives Store — Agentic Commerce API](https://apis.io/apis/evolved-by-nature/evolved-by-nature-bioactives-commerce/) — The agent-callable commerce surface of the Evolved By Nature bioactives store, which sells Activated Silk ingredient grades to formulators. Same deployment…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Evolved By Nature — MCP servers](https://apis.io/servers/evolved-by-nature/evolved-by-nature-mcp-servers/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Evolved By Nature Authentication](https://apis.io/security/evolved-by-nature/evolved-by-nature-authentication/)
+- [Evolved By Nature Domain Security](https://apis.io/security/evolved-by-nature/evolved-by-nature-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Evolved By Nature Scopes](https://apis.io/scopes/evolved-by-nature/evolved-by-nature-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Evolved By Nature Plans Pricing](https://apis.io/plans/evolved-by-nature/evolved-by-nature-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Evolved By Nature Rate Limits](https://apis.io/rate-limits/evolved-by-nature/evolved-by-nature-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://biotech.evolvedbynature.com)
+- [Support](https://biotech.evolvedbynature.com/contact)
+- [Blog](https://biotech.evolvedbynature.com/news-media)
+- [Terms of service](https://biotech.evolvedbynature.com/terms)
+- [Privacy policy](https://biotech.evolvedbynature.com/privacy)
+- [GitHub](https://github.com/Evolved-By-Nature)
+
+## API Evangelist rating
+
+**Kin Score 24.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 35.7 |
+| Access clarity | 21.1 |
+
+**Agent readiness 14.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 34.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/evolved-by-nature/](https://apis.io/providers/evolved-by-nature/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Evolved By Nature: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/evolved-by-nature/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
